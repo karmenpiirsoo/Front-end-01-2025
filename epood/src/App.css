@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.pilt {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.pilt:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.pilt:active {
+  transform: scale(90%);
+}
+
+.nupp {
+  animation: blinker is linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 60%;
+  }
+}
+
+.tekst {
+  color: brown;
+  font-weight: bold;
+}
