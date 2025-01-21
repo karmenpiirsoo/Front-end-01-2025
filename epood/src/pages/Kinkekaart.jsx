@@ -6,9 +6,9 @@ const [summa, setSumma] = useState(20);
 
   return (
     <div>
-        <button onClick={() => setSumma(20)}>20 €</button>
-        <button onClick={() => setSumma(50)}>50 €</button>
-        <button onClick={() => setSumma(100)}>100 €</button>
+        <button className={summa === 20 && "valitud"} onClick={() => setSumma(20)}>20 €</button>
+        <button className={summa === 50 && "valitud"} onClick={() => setSumma(50)}>50 €</button>
+        <button className={summa === 100 && "valitud"} onClick={() => setSumma(100)}>100 €</button>
         <br />
         <div>Kinkekaart {summa}€</div>
     </div>

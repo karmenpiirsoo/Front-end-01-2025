@@ -33,3 +33,17 @@
   color: brown;
   font-weight: bold;
 }
+
+.blue {
+  background-color: blue;
+}
+
+.valitud {
+  color: rgb(227 6 140);
+  border-color: rgb(227 6 140);
+}
+
+.valitud-linn {
+  /* color: rgb(227 6 140); */
+  text-decoration: underline;
+}

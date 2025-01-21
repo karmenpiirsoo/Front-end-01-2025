@@ -46,3 +46,8 @@ Kõikidele rohelistele suure tähega on vajalik import
 }
 
 export default App
+
+// 1. uue projekti tekitamine HTML, CSS
+// 2. routing, link, brauseri ikoon ja kiri
+// 3. useState, components
+// 4. kalkulaator, värvid, Firebase, dünaamiline CSS
