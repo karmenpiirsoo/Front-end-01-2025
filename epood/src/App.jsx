@@ -10,13 +10,17 @@ import LisaToode from './pages/LisaToode'
 import Esindused from './pages/Esindused'
 import Menu from './components/Menu'
 import Kalkulaator from './pages/Kalkulaator'
+import { useState } from 'react'
 
 function App() {
-  
-
+const[tume, setTume] = useState(false) 
+// ? : --> kas_on_tõsi ? kui_on : kui_pole
+// if (tume === true) {"dark"} else {"light"}
   return (
-    <>
+    <div className={tume === true ? "dark" : "light"}>
     <Menu />
+    <button onClick={() => setTume(true)}>Tume</button>
+    <button onClick={() => setTume(false)}>Hele</button>
       <br />
      
 
@@ -41,7 +45,7 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='*' element={<NotFound/>} />
         </Routes>
 
-    </>
+    </div>
   )
 }
 
@@ -51,3 +55,4 @@ export default App
 // 2. routing, link, brauseri ikoon ja kiri
 // 3. useState, components
 // 4. kalkulaator, värvid, Firebase, dünaamiline CSS
+// 5. dünaamiline CSS, function, useRef, kalkulaator

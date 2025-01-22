@@ -3,13 +3,13 @@ import { useState } from "react"
 function Esindused() {
     const [linn, setLinn] = useState("Tallinn");
   return (
-
+// && asemel kasutasa ? ja : , undefined tähendab JS tühjust
     <div>
         {/* <div>Hetkel aktiivne linn: {linn}</div> */}
-        <button className={linn === "Tallinn" && "valitud-linn"} onClick={() => setLinn("Tallinn")}>Tallinn</button>
-        <button className={linn === "Tartu" && "valitud-linn"} onClick={() => setLinn("Tartu")}>Tartu</button>
-        <button className={linn === "Narva" && "valitud-linn"} onClick={() => setLinn("Narva")}>Narva</button>
-        <button className={linn === "Pärnu" && "valitud-linn"} onClick={() => setLinn("Pärnu")}>Pärnu</button>
+        <button className={linn === "Tallinn" ? "valitud-linn": undefined} onClick={() => setLinn("Tallinn")}>Tallinn</button>
+        <button className={linn === "Tartu" ? "valitud-linn": undefined} onClick={() => setLinn("Tartu")}>Tartu</button>
+        <button className={linn === "Narva" ? "valitud-linn": undefined} onClick={() => setLinn("Narva")}>Narva</button>
+        <button className={linn === "Pärnu" ? "valitud-linn": undefined} onClick={() => setLinn("Pärnu")}>Pärnu</button>
         <br />
 
         {linn === "Tallinn" &&

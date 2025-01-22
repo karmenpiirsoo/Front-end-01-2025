@@ -4,7 +4,7 @@ import MaksimaalneKalkulaator from "../components/MaksimaalneKalkulaator"
 import Tavakalkulaator from "../components/Tavakalkulaator"
 
 function Kalkulaator() {
-    const [vaade, setVaade] = useState("tava");
+    const [vaade, setVaade] = useState("laen");
   return (
     <div>
         <button onClick={() => setVaade("tava")}>Tavakalkulaator</button>
