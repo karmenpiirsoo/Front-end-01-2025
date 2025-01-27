@@ -64,3 +64,40 @@
   color: black;
   min-height: 100vh;
   }
+
+  .light button,
+  .light .vali-summa{
+    background-color: white;
+    color: black;
+  }
+
+  .pliiats {
+    width: 20px;
+    height: 20px;
+  }
+
+  .menu {
+    display: flex;
+  }
+ 
+  .theme-buttons {
+    float: left;
+  }
+
+  .summa-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 20%;
+    gap: 5px
+
+  }
+  /* margin: esimene väärtus on üles-alla, tene väärtus on vasakule ja paremale */
+
+  .summa-buttons button {
+    height: 70px;
+  }
+
+  .vali-summa {
+    display: flex;
+    place-items: center;
+  }

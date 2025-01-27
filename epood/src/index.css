@@ -37,7 +37,8 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+button, 
+.vali-summa {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -48,23 +49,37 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+button:hover, 
+.vali-summa:hover {
   border-color: #646cff;
 }
 button:focus,
-button:focus-visible {
+button:focus-visible
+.vali-summa:focus,
+.vali-summa:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #bbc5cf;
+    background-color: #000000;
   }
   a:hover {
     color: #747bff;
   }
-  button {
+  button, 
+  .vali-summa {
     background-color: #f9f9f9;
+    color: black;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  button, 
+  .vali-summa {
+    background-color: black;
+    color: white;
+  }
+}
+/* !important sõidab teistest asjadest üle, näitab, et on tähtis! */

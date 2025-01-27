@@ -19,9 +19,11 @@ const[tume, setTume] = useState(false)
   return (
     <div className={tume === true ? "dark" : "light"}>
     <Menu />
-    <button onClick={() => setTume(true)}>Tume</button>
-    <button onClick={() => setTume(false)}>Hele</button>
-      <br />
+    <span className='theme-buttons'>
+      <button onClick={() => setTume(true)}>Tume</button>
+      <button onClick={() => setTume(false)}>Hele</button>
+      </span>
+      <br /> <br /> <br /> <br />
      
 
         <div className="tekst">Kõik meie pingviinid</div>
@@ -56,3 +58,4 @@ export default App
 // 3. useState, components
 // 4. kalkulaator, värvid, Firebase, dünaamiline CSS
 // 5. dünaamiline CSS, function, useRef, kalkulaator
+// 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, summa ise sisestamine, index.css menüünuppude liigutamine
