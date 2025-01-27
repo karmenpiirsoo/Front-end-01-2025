@@ -58,4 +58,5 @@ export default App
 // 3. useState, components
 // 4. kalkulaator, värvid, Firebase, dünaamiline CSS
 // 5. dünaamiline CSS, function, useRef, kalkulaator
-// 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, summa ise sisestamine, index.css menüünuppude liigutamine
+// 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, 
+// summa ise sisestamine, index.css menüünuppude liigutamine
