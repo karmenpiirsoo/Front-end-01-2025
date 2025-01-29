@@ -15,14 +15,14 @@ function Menu() {
       <Link to="/seaded">
         <button>Seaded</button>
       </Link>
-      <Link to="/esindused">
-        <button>Esindused</button>
-      </Link>
       <Link to="/ostukorv">
         <button>Ostukorvi</button>
       </Link>
       <Link to="/kalkulaator">
         <button>Kalkulaator</button>
+      </Link>
+      <Link to="/arrays">
+        <button>Array-d</button>
       </Link>
      </span>
     </div>

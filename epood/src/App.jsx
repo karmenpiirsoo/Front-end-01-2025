@@ -7,10 +7,16 @@ import Kinkekaart from './pages/Kinkekaart'
 import Seaded from './pages/Seaded'
 import NotFound from './pages/NotFound'
 import LisaToode from './pages/LisaToode'
-import Esindused from './pages/Esindused'
+import Esindused from './pages/arrays/Esindused'
 import Menu from './components/Menu'
 import Kalkulaator from './pages/Kalkulaator'
 import { useState } from 'react'
+import Hinnad from './pages/arrays/Hinnad'
+import Kasutajad from './pages/arrays/Kasutajad'
+import Tootajad from './pages/arrays/Tootajad'
+import Pildid from './pages/arrays/Pildid'
+import Tooted from './pages/arrays/Tooted'
+import ArraysHome from './pages/arrays/ArraysHome'
 
 function App() {
 const[tume, setTume] = useState(false) 
@@ -44,6 +50,15 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='/lisa-toode' element={<LisaToode/>} />
           <Route path='/esindused' element={<Esindused/>} />
           <Route path='/kalkulaator' element={<Kalkulaator/>} />
+
+          <Route path="/arrays" element={<ArraysHome/>} />
+          <Route path="/esindused" element={<Esindused/>} />
+          <Route path='/hinnad' element={<Hinnad/>} />
+          <Route path='/kasutajad' element={<Kasutajad/>} />
+          <Route path='/tootajad' element={<Tootajad/>} />
+          <Route path='/pildid' element={<Pildid/>} />
+          <Route path='/tooted' element={<Tooted/>} />
+
           <Route path='*' element={<NotFound/>} />
         </Routes>
 
@@ -60,3 +75,4 @@ export default App
 // 5. dünaamiline CSS, function, useRef, kalkulaator
 // 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, 
 // summa ise sisestamine, index.css menüünuppude liigutamine
+// 7. arrays - sorteerimine, filtreerimine

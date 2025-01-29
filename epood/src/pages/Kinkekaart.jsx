@@ -61,14 +61,14 @@ const summaValik = () => {
             
             {summaValimine === false && kirjutatudSummaAktiivne === false &&
             <span onClick={summa0}>
-            <img className="pliiats" src="/edit.png" alt="" />
+            <img className="ikoon" src="/edit.png" alt="" />
             <span className="vali-tekst">Valin ise summa</span>
             </span>}
             
             {summaValimine === true &&
             <>
             <input defaultValue={kirjutatudSumma} ref={valimiseRef} type="text" />
-            <img onClick={summaValik} className="pliiats" src="/next.png" alt=""/>
+            <img onClick={summaValik} className="ikoon" src="/next.png" alt=""/>
             </>}
             
             {summaValimine === false && kirjutatudSumma > 0 && kirjutatudSummaAktiivne === true &&
