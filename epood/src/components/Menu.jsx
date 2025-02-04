@@ -24,6 +24,9 @@ function Menu() {
       <Link to="/arrays">
         <button>Array-d</button>
       </Link>
+      <Link to="/halda">
+        <button>Halda</button>
+      </Link>
      </span>
     </div>
   )

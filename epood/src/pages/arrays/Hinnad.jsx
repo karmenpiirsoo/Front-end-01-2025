@@ -1,11 +1,12 @@
 import { useState } from "react"
+import hinnadFailist from "../../data/hinnad.json"
 
 
 function Hinnad() {
-  const [hinnad, setHinnad] = useState([73, 751, 448, 8, 455, 227, 449, 737, 96, 9])
+  const [hinnad, setHinnad] = useState(hinnadFailist.slice())
 
   const reset = () => {
-    setHinnad([73, 751, 448, 8, 455, 227, 449, 737, 96, 9])
+    setHinnad(hinnadFailist.slice())
   }
 
   const sorteeriKasvavalt = () => {
@@ -19,23 +20,33 @@ function Hinnad() {
   }
 
   const filtreeriSuuremadKui400 = () => {
-    const vastus = [73, 751, 448, 8, 455, 227, 449, 737, 96, 9].filter(hind => hind > 400);
+    const vastus = hinnadFailist.filter(hind => hind > 400);
     setHinnad(vastus);
   }
 
   const filtreeriVaiksemadKui500= () => {
-    const vastus = [73, 751, 448, 8, 455, 227, 449, 737, 96, 9].filter(hind => hind < 500);
+    const vastus = hinnadFailist.filter(hind => hind < 500);
     setHinnad(vastus);
+  }
+
+  function arvutaKokku() {
+    let summa = 0        // let lubab muutujal olla muutuv, const on kindel
+    // summa = summa + 73 jne
+    hinnad.forEach(hind => summa = summa + hind);
+    return summa;
   }
 
   return (
     <div>
+      <div>Kokku: {hinnad.length} tk </div>
       <button onClick={reset}>Reset</button>
       <button onClick={sorteeriKasvavalt}>Sorteeri kasvavalt</button>
       <button onClick={sorteeriKahanevalt}>Sorteeri kahanevalt</button>
       <button onClick={filtreeriSuuremadKui400}> Jäta alles suuremad kui 400</button>
       <button onClick={filtreeriVaiksemadKui500}> Jäta alles väiksemad kui 500</button>
       {hinnad.map(hind => <div key={hind}>{hind}</div>)}
+      <div>Kokku: {arvutaKokku()} €</div>  
+      {/* sulud tulevad selleks, et funktsioon tootaks ilma klikita! */}
 
     </div>
   )

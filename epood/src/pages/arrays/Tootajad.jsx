@@ -60,7 +60,7 @@ const [tootajad, setTootajad] = useState(['Pepe', 'Lolo', 'Timmu', 'Lala', 'Fros
   }
 
   const filtreeriEsitahtM = () => {
-    const vastus = tootajad.filter(tootaja => tootaja.startsWith("M"))
+    const vastus = tootajad.filter(tootaja => tootaja.startsWith("L"))
     setTootajad(vastus)
   }
 
@@ -82,10 +82,10 @@ const [tootajad, setTootajad] = useState(['Pepe', 'Lolo', 'Timmu', 'Lala', 'Fros
       <button onClick={sorteeriKolmasTahtAZ}>Sorteeri kolmas täht kasvavalt</button>
       <br />
       <button onClick={filtreeriKolmetahte}>Filteeri kolme tähelised sõnad</button>
-      <button onClick={filtreeriRohkemKuiViisTahte}>Filteeri sünad rohkem, kui 5 tähega</button>
+      <button onClick={filtreeriRohkemKuiViisTahte}>Filteeri sõnad rohkem, kui 5 tähega</button>
       <button onClick={filtreeriMisSisaldavadAi}>Filteeri sõnad, mis sisaldavad AI</button>
       <button onClick={filtreeriNeljasTahtI}>Filteeri sõnad, kus neljas täht on I</button>
-      <button onClick={filtreeriEsitahtM}>Filteeri sõnad, mis algavad tähega M</button>
+      <button onClick={filtreeriEsitahtM}>Filteeri sõnad, mis algavad tähega L</button>
       <button onClick={filtreeriPaarisArvTahti}>Filteeri sõnad, kus on paaris arv tähti</button>
       {tootajad.map(tootaja => <div key={tootaja}>{tootaja}</div>)}
     </div>

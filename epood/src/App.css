@@ -101,3 +101,10 @@
     display: flex;
     place-items: center;
   }
+  table {
+    margin: auto;
+  }
+
+  th, td {
+    border: 1px solid black
+  }

@@ -17,6 +17,13 @@ import Tootajad from './pages/arrays/Tootajad'
 import Pildid from './pages/arrays/Pildid'
 import Tooted from './pages/arrays/Tooted'
 import ArraysHome from './pages/arrays/ArraysHome'
+import HaldaHome from './pages/halda/HaldaHome'
+import HaldaEsindused from './pages/halda/HaldaEsindused'
+import HaldaHinnad from './pages/halda/HaldaHinnad'
+import HaldaKasutajad from './pages/halda/HaldaKasutajad'
+import HaldaTootajad from './pages/halda/HaldaTootajad'
+import HaldaPildid from './pages/halda/HaldaPildid'
+import HaldaTooted from './pages/halda/HaldaTooted'
 
 function App() {
 const[tume, setTume] = useState(false) 
@@ -59,6 +66,14 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='/pildid' element={<Pildid/>} />
           <Route path='/tooted' element={<Tooted/>} />
 
+          <Route path="/halda" element={<HaldaHome/>} />
+          <Route path="/halda-esindused" element={<HaldaEsindused/>} />
+          <Route path='/halda-hinnad' element={<HaldaHinnad/>} />
+          <Route path='/halda-kasutajad' element={<HaldaKasutajad/>} />
+          <Route path='/halda-tootajad' element={<HaldaTootajad/>} />
+          <Route path='/halda-pildid' element={<HaldaPildid/>} />
+          <Route path='/halda-tooted' element={<HaldaTooted/>} />
+
           <Route path='*' element={<NotFound/>} />
         </Routes>
 
@@ -76,3 +91,5 @@ export default App
 // 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, 
 // summa ise sisestamine, index.css menüünuppude liigutamine
 // 7. arrays - sorteerimine, filtreerimine
+// 8. array - kustutamine, funktsiooni taaskasutamine, tabel, lisamine, failist välja tõstmine, kokkuarvutus (nii kogus kui summa)
+// 9. URL muutuja, objektid, localStorage

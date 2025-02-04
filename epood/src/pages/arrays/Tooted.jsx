@@ -46,9 +46,11 @@ function Tooted() {
   return (
     <div>
       <button onClick={reset}>Reset</button>
+      <br />
       <button onClick={sorteeriAZ}>Sorteeri kasvavalt</button>
       <button onClick={sorteeriZA}>Sorteeri kahanevalt</button>
       <button onClick={sorteeriTahedKasvavalt}>Sorteeri tähed kasvavalt</button>
+      <br />
       <button onClick={sorteeriTahedKahanevalt}> Sorteeri tähed kahanevalt</button>
       <button onClick={sorteeriTeineTahtAZ}>Sorteeri teine tähe kasvavalt</button>
       <button onClick={sorteeriKolmasTahtAZ}>Sorteeri kolmas täht kasvavalt</button>
