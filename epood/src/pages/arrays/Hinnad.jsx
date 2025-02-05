@@ -10,29 +10,29 @@ function Hinnad() {
   }
 
   const sorteeriKasvavalt = () => {
-    const vastus = hinnad.toSorted((a, b) => a - b);
+    const vastus = hinnad.toSorted((a, b) => a.number - b.number);
     setHinnad(vastus);
   }
 
   const sorteeriKahanevalt = () => {
-    const vastus = hinnad.toSorted((a, b) => b - a);
+    const vastus = hinnad.toSorted((a, b) => b.number - a.number);
     setHinnad(vastus)
   }
 
   const filtreeriSuuremadKui400 = () => {
-    const vastus = hinnadFailist.filter(hind => hind > 400);
+    const vastus = hinnadFailist.filter(hind => hind.number > 400);
     setHinnad(vastus);
   }
 
   const filtreeriVaiksemadKui500= () => {
-    const vastus = hinnadFailist.filter(hind => hind < 500);
+    const vastus = hinnadFailist.filter(hind => hind.number < 500);
     setHinnad(vastus);
   }
 
   function arvutaKokku() {
     let summa = 0        // let lubab muutujal olla muutuv, const on kindel
     // summa = summa + 73 jne
-    hinnad.forEach(hind => summa = summa + hind);
+    hinnad.forEach(hind => summa = summa + hind.number);
     return summa;
   }
 
@@ -44,7 +44,10 @@ function Hinnad() {
       <button onClick={sorteeriKahanevalt}>Sorteeri kahanevalt</button>
       <button onClick={filtreeriSuuremadKui400}> Jäta alles suuremad kui 400</button>
       <button onClick={filtreeriVaiksemadKui500}> Jäta alles väiksemad kui 500</button>
-      {hinnad.map(hind => <div key={hind}>{hind}</div>)}
+      {hinnad.map(hind => 
+        <div key={hind.number}>
+          {hind.number}
+        </div>)}
       <div>Kokku: {arvutaKokku()} €</div>  
       {/* sulud tulevad selleks, et funktsioon tootaks ilma klikita! */}
 

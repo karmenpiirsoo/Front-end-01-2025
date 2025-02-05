@@ -16,7 +16,10 @@ function HaldaHinnad() {
   }
 
   function lisa() {
-    hinnadFailist.push(Number(hinnadRef.current.value));
+    hinnadFailist.push({
+      "number": Number(hinnadRef.current.value),
+      "lisaja": "Karmen"
+    });
     setHinnad(hinnadFailist.slice());
   }
   return (
@@ -37,16 +40,18 @@ function HaldaHinnad() {
                 <tr>
                     <th>Järjekorranumber</th>
                     <th>Index</th>
-                    <th>Pilt</th>
+                    <th>Hind</th>
+                    <th>Lisaja</th>
                     <th>Kustuta nupp</th>
                 </tr>
             </thead>
             <tbody>
             {hinnad.map((hind, index) => 
-            <tr key={hind}>
+            <tr key={hind.number}>
                 <td>{index + 1}</td>
                 <td>{index}</td>
-                <td>{hind}</td>
+                <td>{hind.number}</td>
+                <td>{hind.lisaja}</td>
                 <td><button onClick={() => kustuta(index)}>x</button></td>
             </tr>)}
             </tbody>

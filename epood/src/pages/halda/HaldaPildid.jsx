@@ -4,7 +4,9 @@ import pildidFailist from "../../data/pildid.json"
 function HaldaPildid() {
  
     const [pildid, setPildid] = useState(pildidFailist.slice()) // setPildid kasutada siis 
-    const piltRef = useRef();
+    const urlRef = useRef();
+    const pealkiriRef = useRef();
+    const kirjeldusRef = useRef()
 
     function  reset() {
       setPildid(pildidFailist.slice()) 
@@ -16,7 +18,11 @@ function HaldaPildid() {
     }
 
     function lisa() {
-      pildidFailist. push(piltRef.current.value);
+      pildidFailist. push({
+        "url": urlRef.current.value,
+        "pealkiri": pealkiriRef.current.value,
+        "kirjeldus": kirjeldusRef.current.value
+      });
       setPildid(pildidFailist.slice()) // --> HTMLi uuendamiseks
     }
 
@@ -27,11 +33,14 @@ function HaldaPildid() {
       <div>Kokku: {pildid.length} tk </div>
 
       <br />
-
-      <br />
       <label>Pildi URL</label><br />
-      <input ref={piltRef}type="text" /><br />
+      <input ref={urlRef}type="text" /><br />
+      <label>Pildi pealkiri</label><br />
+      <input ref={pealkiriRef}type="text" /><br />
+      <label>Pildi kirjeldus</label><br />
+      <input ref={kirjeldusRef}type="text" /><br />
       <button onClick={lisa}>Lisa</button>
+      <br />
       <br />
 
        <table>
@@ -41,16 +50,20 @@ function HaldaPildid() {
                     <th>Index</th>
                     <th>Pilt</th>
                     <th>Pilt</th>
+                    <th>Pildi pealkiri</th>
+                    <th>Kirjeldus</th>
                     <th>Kustuta nupp</th>
                 </tr>
             </thead>
             <tbody>
             {pildid.map((pilt, index) => 
-            <tr key={pilt}>
+            <tr key={pilt.url}>
                 <td>{index + 1}</td>
                 <td>{index}</td>
-                <td>{pilt}</td>
-                <td><img key={pilt} className="ikoon" src={pilt} alt="" /></td>
+                <td>{pilt.url}</td>
+                <td><img key={pilt.url} className="ikoon" src={pilt.url} alt="" /></td>
+                <td>{pilt.pealkiri}</td>
+                <td>{pilt.kirjeldus}</td>
                 <td><button onClick={() => kustuta(index)}>x</button></td>
             </tr>)}
             </tbody>

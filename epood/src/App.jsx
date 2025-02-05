@@ -92,4 +92,5 @@ export default App
 // summa ise sisestamine, index.css menüünuppude liigutamine
 // 7. arrays - sorteerimine, filtreerimine
 // 8. array - kustutamine, funktsiooni taaskasutamine, tabel, lisamine, failist välja tõstmine, kokkuarvutus (nii kogus kui summa)
-// 9. URL muutuja, objektid, localStorage
+// 9. objektid, localStorage
+// 10. URL muutuja (parameeter), localStorage

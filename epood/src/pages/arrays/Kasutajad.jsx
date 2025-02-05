@@ -2,7 +2,9 @@
 
 function Kasutajad() {
   return (
-    <div>Kasutajad</div>
+    <div>
+      
+    </div>
   )
 }
 

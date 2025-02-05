@@ -1,49 +1,50 @@
 import { useState } from "react"
+import esindusedJSON from "../../data/esindused.json"
 
 function Esindused() {
   const [linn, setLinn] = useState("Tallinn");
-  const [keskused, setKeskused] = useState(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]);
+  const [keskused, setKeskused] = useState(esindusedJSON.slice());
   
   const reset = () => {
-    setKeskused(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"])
+    setKeskused(esindusedJSON.slice())
   }
   const sorteeriAZ = () => {
-    const vastus = keskused.toSorted((a, b) => a.localeCompare(b, "et")) // kui on tähemärgid mingis keeles, siis märkida ära keel (kahetäheline kood)
+    const vastus = keskused.toSorted((a, b) => a.nimi.localeCompare(b.nimi, "et")) // kui on tähemärgid mingis keeles, siis märkida ära keel (kahetäheline kood)
     setKeskused(vastus)
   }
 
   const sorteeriZA = () => {
-    const vastus = keskused.toSorted((a, b) => b.localeCompare(a, "et"))
+    const vastus = keskused.toSorted((a, b) => b.nimi.localeCompare(a.nimi, "et"))
     setKeskused(vastus)
   }
 
   const sorteeriKolmasTahtAZ = () => {
-    const vastus = keskused.toSorted((a, b) => a[2].localeCompare(b[2], "et")) // kolmanda tähe arvestuseks märkida ära, et mitte lugeda kahte esimest tähe nurksulgudes
+    const vastus = keskused.toSorted((a, b) => a.nimi[2].localeCompare(b.nimi[2], "et")) // kolmanda tähe arvestuseks märkida ära, et mitte lugeda kahte esimest tähe nurksulgudes
     setKeskused(vastus)
   }
 
   const filtreeriKellelNeljasTahtS = () => {
-    const vastus = keskused.filter(keskus => keskus[3] === "s");
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi[3] === "s");
     setKeskused(vastus)
   }
 
   const filtreeriKellelTahemarkeVahemalt7 = () => {
-    const vastus = keskused.filter(keskus => keskus.length >= 7)
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.length >= 7)
     setKeskused(vastus)
   }
 
   const filtreeriKellelTahemarkeTapselt9 = () => {
-    const vastus = keskused.filter(keskus => keskus.length === 9)
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.length === 9)
     setKeskused(vastus)
   }
 
   const filtreeriKellelSonaYhendIs = () => {
-    const vastus = keskused.filter(keskus => keskus.includes("is"))
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.includes("is"))
     setKeskused(vastus)
   }
 
   const filtreeriKesLoppebTahegaE = () => {
-    const vastus = keskused.filter(keskus => keskus.endsWith("e"))
+    const vastus = esindusedJSON.filter(keskus => keskus.nimi.endsWith("e"))
     setKeskused(vastus)
   }
   
@@ -69,7 +70,10 @@ function Esindused() {
         <button onClick={filtreeriKellelTahemarkeTapselt9}> Sisaldab täpselt 9 märki</button>
         <button onClick={filtreeriKellelSonaYhendIs}> Kes sisaldab ühendit is</button>
         <button onClick={filtreeriKesLoppebTahegaE}>Lõppeb tähega E</button>
-        {keskused.map(keskus => <div key={keskus}>{keskus}</div>)}
+        {keskused.map(keskus => 
+          <div key={keskus.nimi}>
+            {keskus.nimi} - {keskus.tel} - {keskus.aadress}
+          </div>)}
         {/* <div>Ülemiste</div>
         <div>Rocca al Mare</div>
         <div>Magistrali</div>

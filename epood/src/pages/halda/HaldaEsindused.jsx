@@ -1,45 +1,66 @@
-import { useState } from "react";
-
+import { useRef, useState } from "react";
+import esindusedJSON from "../../data/esindused.json"
 
 function HaldaEsindused() {
-  const [keskused, setKeskused] = useState(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]);
-  
+  const [keskused, setKeskused] = useState(esindusedJSON.slice());
+  const nimiRef = useRef()
+  const telRef = useRef()
+  const aadressRef = useRef()  
   function reset () {
-    setKeskused(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"])
+    setKeskused(esindusedJSON.slice())
   } 
 
   function kustutaEsimene() {
-    keskused.splice(0, 1);   // splice tahab endale kindlat asja, mida ta kustutab. ehk asjadele tuleb anda järjekorranumber, alustades =st
-    setKeskused(keskused.slice()); // setKeskused on see, mis uuendab HTMLis ja selle sulgudes on muutuja mida ta muudab. kustutamisel kaustada eelmises real olevat funktsiooni
+    esindusedJSON.splice(0, 1);   // splice tahab endale kindlat asja, mida ta kustutab. ehk asjadele tuleb anda järjekorranumber, alustades =st
+    setKeskused(esindusedJSON.slice()); // setKeskused on see, mis uuendab HTMLis ja selle sulgudes on muutuja mida ta muudab. kustutamisel kaustada eelmises real olevat funktsiooni
     } // splice alati pigem kasutada ühe kaupa
 
   function kustutaTeine() {
-    keskused.splice(1, 1)
-    setKeskused(keskused.slice());
+    esindusedJSON.splice(1, 1)
+    setKeskused(esindusedJSON.slice());
   }
 
   function kustutaKolmas() {
-    keskused.splice(2, 1)
-    setKeskused(keskused.slice());
+    esindusedJSON.splice(2, 1)
+    setKeskused(esindusedJSON.slice());
   }
 
   function kustutaNeljas() {
-    keskused.splice(3, 1)
-    setKeskused(keskused.slice());
+    esindusedJSON.splice(3, 1)
+    setKeskused(esindusedJSON.slice());
   }
 
   function kustutaViies() {
-    keskused.splice(4, 1)
-    setKeskused(keskused.slice());
+    esindusedJSON.splice(4, 1)
+    setKeskused(esindusedJSON.slice());
   }
 
   function kustuta(jrknr) { // järekorranumber
-    keskused.splice(jrknr, 1)
-    setKeskused(keskused.slice());
+    esindusedJSON.splice(jrknr, 1)
+    setKeskused(esindusedJSON.slice());
+  }
+
+  const lisa = () => {
+    esindusedJSON.push({
+      "nimi": nimiRef.current.value,
+      "tel": telRef.current.value,
+      "aadress": aadressRef.current.value
+    });
+    setKeskused(esindusedJSON.slice())
   }
 
     return (
     <div>
+      <br />
+      <label>Keskuse nimi</label><br />
+      <input ref={nimiRef}type="text" /><br />
+      <label>Keskuse telefon</label><br />
+      <input ref={telRef}type="text" /><br />
+      <label>Keskuse aadress</label><br />
+      <input ref={aadressRef}type="text" /><br />
+      <button onClick={lisa}>Lisa</button>
+      <br />
+
         <button onClick={reset}>Reset</button>
         <br />
         <button onClick={kustutaEsimene}>Kustuta esimine</button>
@@ -55,15 +76,19 @@ function HaldaEsindused() {
                     <th>Järjekorranumber</th>
                     <th>Index</th>
                     <th>Keskus</th>
+                    <th>Telefon</th>
+                    <th>Aadress</th>
                     <th>Kustuta nupp</th>
                 </tr>
             </thead>
             <tbody>
             {keskused.map((keskus, index) => 
-            <tr key={keskus}>
+            <tr key={keskus.nimi}>
                 <td>{index + 1}</td>
                 <td>{index}</td>
-                <td>{keskus}</td>
+                <td>{keskus.nimi}</td>
+                <td>{keskus.tel}</td>
+                <td>{keskus.aadress}</td>
                 <td><button onClick={() => kustuta(index)}>x</button></td>
             </tr>)}
             </tbody>

@@ -19,33 +19,33 @@ function Pildid() {
     }
 
     const sorteeriTahemargidKasvavalt = () => {
-      const vastus = pildid.toSorted((a, b) => a.length - b.length)
+      const vastus = pildid.toSorted((a, b) => a.url.length - b.url.length)
       setPildid(vastus)
     }  
 
     const sorteeriTahemargidKahanevalt = () => {
-      const vastus = pildid.toSorted((a, b) => b.length - a.length)
+      const vastus = pildid.toSorted((a, b) => b.pealkiri.length - a.pealkiri.length)
       setPildid(vastus)
     }
 
     const filtreeriLaigiPildid = () => {
-      const vastus = pildidFailist.filter(pilt => pilt.includes("laigitud"));
+      const vastus = pildidFailist.filter(pilt => pilt.url.includes("laigitud"));
       setPildid(vastus);
     }
 
     const filtreeriSvgPildid = () => {
-      const vastus = pildidFailist.filter(pilt => pilt.includes(".svg"));
+      const vastus = pildidFailist.filter(pilt => pilt.url.includes(".svg"));
       setPildid(vastus);
     }
 
     const filtreeriPngPildid = () => {
-      const vastus = pildidFailist.filter(pilt => pilt.includes(".png")); // 
+      const vastus = pildidFailist.filter(pilt => pilt.url.includes(".png")); // 
       setPildid(vastus)
     }
 
     function arvutaKokku() {
       let summa = 0
-      pildid.forEach(pilt => summa = summa + pilt.length);
+      pildid.forEach(pilt => summa = summa + pilt.pealkiri.length);
       return summa;
     }
 
@@ -53,8 +53,8 @@ function Pildid() {
     <div>
       <button onClick={reset}>Reset</button>
       <div>Kokku: {pildid.length} tk </div>
-      <button onClick={sorteeriTahemargidKasvavalt}> Sorteeri tähemärgid kasvavalt</button>
-      <button onClick={sorteeriTahemargidKahanevalt}>Sorteeri themärgid kahanevalt</button>
+      <button onClick={sorteeriTahemargidKasvavalt}> Sorteeri pealkirja tähemärgid kasvavalt</button>
+      <button onClick={sorteeriTahemargidKahanevalt}>Sorteeri pealkirja tähemärgid kahanevalt</button>
       <br />
       <button onClick={filtreeriLaigiPildid}>Filtreeri laigitud pildid</button>
       <button onClick={filtreeriSvgPildid}>Filtreeri SVG pildid</button>
@@ -67,7 +67,14 @@ function Pildid() {
             selleks kaustame key={} ja loogeliste sulgude vahele läheb, see mille alusel soovime mällu jätta*/}
 
             
-        {pildid.map(pilt => <img key={pilt} className="ikoon" src={pilt} alt="" />)}
+        {pildid.map(pilt => 
+          <div key={pilt.url}>
+            <img className="ikoon" src={pilt.url} alt="" />
+            <div>Pealkiri: {pilt.pealkiri}</div>
+            <div>URL: {pilt.url}</div>
+            <div>Kirjeldus: {pilt.kirjeldus}</div>
+          </div>
+        )}
         <div>Kokku: {arvutaKokku()} märki</div>
         {/* <img className="ikoon" src="/edit.png" alt="" />
         <img className="ikoon" src="laigitud.svg" alt="" />
