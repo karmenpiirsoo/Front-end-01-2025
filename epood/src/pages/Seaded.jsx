@@ -2,13 +2,33 @@ import { useState } from "react"
 
 
 function Seaded() {
-  const [keel, setKeel] = useState("est");
+  const [keel, setKeel] = useState(localStorage.getItem ("keel") || "est");
+
+  function muudaKeelEst() {
+    setKeel("est")
+    localStorage.setItem("keel", "est")
+  }
+
+  function muudaKeelEng() {
+    setKeel("eng")
+    localStorage.setItem("keel", "eng")
+  }
+
+  function muudaKeelRus() {
+    setKeel("rus")
+    localStorage.setItem("keel", "rus")
+  }
+
+  function muudaKeelEsp() {
+    setKeel("esp")
+    localStorage.setItem("keel", "esp")
+  }
   return (
     <div>
-      <button className={keel === "est" ? "valitud-keel" : undefined} onClick ={()=> setKeel("est")}> Eesti</button>
-      <button className={keel === "eng" ? "valitud-keel" : undefined} onClick ={()=> setKeel("eng")}>English</button>
-      <button className={keel === "rus" ? "valitud-keel" : undefined} onClick ={()=> setKeel("rus")}>Pyccku</button>
-      <button className={keel === "esp" ? "valitud-keel" : undefined} onClick ={()=> setKeel("esp")}>Espanol</button>
+      <button className={keel === "est" ? "valitud-keel" : undefined} onClick ={muudaKeelEst}> Eesti</button>
+      <button className={keel === "eng" ? "valitud-keel" : undefined} onClick ={muudaKeelEng}>English</button>
+      <button className={keel === "rus" ? "valitud-keel" : undefined} onClick ={muudaKeelRus}>Pyccku</button>
+      <button className={keel === "esp" ? "valitud-keel" : undefined} onClick ={muudaKeelEsp}>Espanol</button>
       <br />
       <div>Hetkel aktiivse keele lühend: {keel}</div>
       <br />

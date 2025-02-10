@@ -90,7 +90,8 @@ export default App
 // 5. dünaamiline CSS, function, useRef, kalkulaator
 // 6. Toastify(hüpikaken). CSS - grid, flex, !important, emaili väljatõstmine, 
 // summa ise sisestamine, index.css menüünuppude liigutamine
-// 7. arrays - sorteerimine, filtreerimine
-// 8. array - kustutamine, funktsiooni taaskasutamine, tabel, lisamine, failist välja tõstmine, kokkuarvutus (nii kogus kui summa)
-// 9. objektid, localStorage
-// 10. URL muutuja (parameeter), localStorage
+// 7. arrays - sorteerimine, filtreerimine 
+// 8. array - kustutamine, funktsiooni taaskasutamine, tabel, lisamine, failist välja tõstmine, kokkuarvutus (nii kogus kui summa) (4.02.25)
+// 9. objektid (5.02.25)
+// 10. localStorage (10.02) koju localstorage ja inglise keelne webshop
+// 11. URL muutuja (parameeter) (26.02.25)
