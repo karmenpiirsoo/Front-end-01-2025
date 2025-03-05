@@ -108,3 +108,20 @@
   th, td {
     border: 1px solid black
   }
+
+  .inactive {
+    background-color: red;
+  }
+
+  .toote-pilt {
+    height: 100px;
+    width: 100px;
+
+  }
+
+  .pilt-mitteaktiivne {
+    width: 100px;
+    height: 100px;
+    /* filter: grayscale(100%);  */
+    opacity: 20%;
+  }

@@ -1,46 +1,52 @@
 import { useState } from "react"
+import tootedFailist from "../../data/tooted.json"
+import ostukorvFailist from "../../data/ostukorv.json"
 
 function Tooted() {
 
-  const [tooted, setTooted] = useState(['Bmw', 'Nobe', 'Audi', 'Tesla', 'Mazda', 'Ferrari', 'Nissan', 'Bentley', 'Toyota', 'Fiat', 'Mercedes', 'Honda', 'Alfa-Romeo', 'Ford', 'Mitsubishi', 'Hyundai', 'Aston-Martin', 'Bugatti'])
+  const [tooted, setTooted] = useState(tootedFailist.slice())
 
   const reset = () => {
-    setTooted(['Bmw', 'Nobe', 'Audi', 'Tesla', 'Mazda', 'Ferrari', 'Nissan', 'Bentley', 'Toyota', 'Fiat', 'Mercedes', 'Honda', 'Alfa-Romeo', 'Ford', 'Mitsubishi', 'Hyundai', 'Aston-Martin', 'Bugatti'])
+    setTooted(tootedFailist.slice())
   }
 
   const sorteeriAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a.localeCompare(b))
+    const vastus = tooted.toSorted((a, b) => a.name.localeCompare(b))
     setTooted(vastus)
   }
 
   const sorteeriZA = () => {
-    const vastus = tooted.toSorted((a, b) => b.localeCompare(a))
+    const vastus = tooted.toSorted((a, b) => b.name.localeCompare(a))
     setTooted(vastus)
   }
 
   const sorteeriTahedKasvavalt = () => {
-    const vastus = tooted.toSorted((a, b) => a.length - b.length)
+    const vastus = tooted.toSorted((a, b) => a.name.length - b.name.length)
     setTooted(vastus)
   }
 
   const sorteeriTahedKahanevalt = () => {
-    const vastus = tooted.toSorted((a, b) => b.length - a.length)
+    const vastus = tooted.toSorted((a, b) => b.name.length - a.name.length)
     setTooted(vastus)
   }
 
   const sorteeriTeineTahtAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a[2].localeCompare(b[2]))
+    const vastus = tooted.toSorted((a, b) => a.name[2].localeCompare(b[2]))
     setTooted(vastus)
   }
 
   const sorteeriKolmasTahtAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a[3].localeCompare(b[3]))
+    const vastus = tooted.toSorted((a, b) => a.name[3].localeCompare(b[3]))
     setTooted(vastus)
   }
 
   const filtreeriEsitahtF = () => {
-    const vastus = tooted.filter(toode => toode.startsWith("F", "et"))
+    const vastus = tooted.filter(toode => toode.name.startsWith("F", "et"))
     setTooted(vastus)
+  }
+
+  const lisaOstukorvi = (toode) => {
+    ostukorvFailist.push(toode);
   }
 
   return (
@@ -55,7 +61,12 @@ function Tooted() {
       <button onClick={sorteeriTeineTahtAZ}>Sorteeri teine tähe kasvavalt</button>
       <button onClick={sorteeriKolmasTahtAZ}>Sorteeri kolmas täht kasvavalt</button>
       <button onClick={filtreeriEsitahtF}>Filteeri sõnad, mis algavad tähega F</button>
-      {tooted.map(toode => <div key={toode}>{toode}</div>)}
+      {tooted.map(toode => 
+      <div key={toode.name}>     
+        <img className={toode.active === true ? "toote-pilt" : "pilt-mitteaktiivne"} src={toode.image} alt="" />   
+        <div>{toode.name} - {toode.price}€ </div>
+        <button disabled={toode.active === false} onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
+        </div>)}
     </div>
   )
 }

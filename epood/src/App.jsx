@@ -26,15 +26,26 @@ import HaldaPildid from './pages/halda/HaldaPildid'
 import HaldaTooted from './pages/halda/HaldaTooted'
 
 function App() {
-const[tume, setTume] = useState(false) 
+  const[tume, setTume] = useState(localStorage.getItem("mode") || "false"); // true või false ei lähe localstoragesse, aga saab kasutada kui lisada jutumärgid
+
+  function tumeMode() {
+    setTume("true"); 
+    localStorage.setItem("mode", "true")
+  }
+
+  function heleMode() {
+    setTume("false"); 
+    localStorage.setItem("mode", "false")
+  }
+
 // ? : --> kas_on_tõsi ? kui_on : kui_pole
 // if (tume === true) {"dark"} else {"light"}
   return (
-    <div className={tume === true ? "dark" : "light"}>
+    <div className={tume === "true" ? "dark" : "light"}>
     <Menu />
     <span className='theme-buttons'>
-      <button onClick={() => setTume(true)}>Tume</button>
-      <button onClick={() => setTume(false)}>Hele</button>
+      <button onClick={tumeMode}>Tume</button>
+      <button onClick={heleMode}>Hele</button>
       </span>
       <br /> <br /> <br /> <br />
      
@@ -95,3 +106,5 @@ export default App
 // 9. objektid (5.02.25)
 // 10. localStorage (10.02) koju localstorage ja inglise keelne webshop
 // 11. URL muutuja (parameeter) (26.02.25)
+// 12. Ostukorv lisa, kustuta ja eemalda ja objektid (tooted - lisamine ja kustutamine) (5.03.25)
+// 13. localStorage (ostukorv) (10.03.25)

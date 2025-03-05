@@ -98,3 +98,5 @@ const summaValik = () => {
 }
 
 export default Kinkekaart
+
+// Kui toastify'ga error, siis intalli uuesti -> npm install react-toastify
