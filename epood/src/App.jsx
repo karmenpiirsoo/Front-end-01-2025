@@ -24,8 +24,11 @@ import HaldaKasutajad from './pages/halda/HaldaKasutajad'
 import HaldaTootajad from './pages/halda/HaldaTootajad'
 import HaldaPildid from './pages/halda/HaldaPildid'
 import HaldaTooted from './pages/halda/HaldaTooted'
+import { useTranslation } from 'react-i18next';
+import Kaart from './pages/Kaart'
 
 function App() {
+  const { i18n } = useTranslation();
   const[tume, setTume] = useState(localStorage.getItem("mode") || "false"); // true või false ei lähe localstoragesse, aga saab kasutada kui lisada jutumärgid
 
   function tumeMode() {
@@ -38,6 +41,21 @@ function App() {
     localStorage.setItem("mode", "false")
   }
 
+  function muudaKeelEn() {
+    i18n.changeLanguage("en")
+    localStorage.setItem("keel", "en")
+  }
+
+  function muudaKeelEt() {
+    i18n.changeLanguage("et")
+    localStorage.setItem("keel", "et")
+  }
+
+  function muudaKeelEs() {
+    i18n.changeLanguage("es")
+    localStorage.setItem("keel", "es")
+  }
+
 // ? : --> kas_on_tõsi ? kui_on : kui_pole
 // if (tume === true) {"dark"} else {"light"}
   return (
@@ -46,6 +64,9 @@ function App() {
     <span className='theme-buttons'>
       <button onClick={tumeMode}>Tume</button>
       <button onClick={heleMode}>Hele</button>
+      <img className= "lang" onClick={muudaKeelEn} src="/english.png" alt="" />
+      <img className= "lang" onClick={muudaKeelEt} src="/estonian.png" alt="" />
+      <img className= "lang" onClick={muudaKeelEs} src="/spanish.png" alt="" />
       </span>
       <br /> <br /> <br /> <br />
      
@@ -85,6 +106,8 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='/halda-pildid' element={<HaldaPildid/>} />
           <Route path='/halda-tooted' element={<HaldaTooted/>} />
 
+          <Route path='/kaart' element={<Kaart/>} />
+
           <Route path='*' element={<NotFound/>} />
         </Routes>
 
@@ -107,4 +130,11 @@ export default App
 // 10. localStorage (10.02) koju localstorage ja inglise keelne webshop
 // 11. URL muutuja (parameeter) (26.02.25)
 // 12. Ostukorv lisa, kustuta ja eemalda ja objektid (tooted - lisamine ja kustutamine) (5.03.25)
-// 13. localStorage (ostukorv) (10.03.25)
+// 13. localStorage (ostukorv), tõlge, kaardirakendus(10.03.25)
+// 14.  emaili saatmine, kujunduslik pool, eshopis (12.03.25)
+// 15. 
+// 16. 
+// 17. 
+// 18. Lõpuprojekti esitlemine (7.04)
+
+// kood Jõhvi

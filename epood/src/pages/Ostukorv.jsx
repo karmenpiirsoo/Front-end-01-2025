@@ -1,17 +1,19 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import ostukorvFailist from "../data/ostukorv.json"
+//import ostukorvFailist from "../data/ostukorv.json"
 
 function Ostukorv() {
-  const [tooted, setTooted] = useState(ostukorvFailist.slice())
+  const [tooted, setTooted] = useState(JSON.parse(localStorage.getItem("ostukorv")) || [])
 
   const tyhjenda = () => {
     setTooted([]);
+    localStorage.setItem("ostukorv", JSON.stringify([]))
   }
 
   const kustuta= (index) => {
-    ostukorvFailist.splice(index, 1);
-    setTooted(ostukorvFailist.slice())
+    tooted.splice(index, 1);
+    setTooted(tooted.slice())
+    localStorage.setItem("ostukorv", JSON.stringify(tooted));
   }
 
   return (

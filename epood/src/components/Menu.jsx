@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
+
 function Menu() {
+  const { t, i18n } = useTranslation();
   return (
     <div className="menu">
       <Link to="/">
@@ -7,7 +10,7 @@ function Menu() {
       </Link>
      <span className="menu-buttons">
      <Link to="/lisa-toode">
-        <button>Lisa toode</button>
+        <button>{t("menu.add")}</button>
       </Link>
       <Link to="/osta-kinkekaart">
         <button>Osta kinkekaart</button>
@@ -16,7 +19,7 @@ function Menu() {
         <button>Seaded</button>
       </Link>
       <Link to="/ostukorv">
-        <button>Ostukorvi</button>
+        <button>{t("menu.cart")}</button>
       </Link>
       <Link to="/kalkulaator">
         <button>Kalkulaator</button>
@@ -26,6 +29,9 @@ function Menu() {
       </Link>
       <Link to="/halda">
         <button>Halda</button>
+      </Link>
+      <Link to="/kaart">
+        <button>Kaart</button>
       </Link>
      </span>
     </div>

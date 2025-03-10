@@ -1,6 +1,6 @@
 import { useState } from "react"
 import tootedFailist from "../../data/tooted.json"
-import ostukorvFailist from "../../data/ostukorv.json"
+// import ostukorvFailist from "../../data/ostukorv.json"
 
 function Tooted() {
 
@@ -46,9 +46,17 @@ function Tooted() {
   }
 
   const lisaOstukorvi = (toode) => {
-    ostukorvFailist.push(toode);
+    // ostukorvFailist.push(toode);
+    const ostukorvLS = JSON.parse(localStorage.getItem("ostukorv")) || []
+    ostukorvLS.push(toode);
+    localStorage.setItem("ostukorv", JSON.stringify(ostukorvLS));
   }
 
+  // 1. võtame localStorage'st (localStorage.getItem))
+  // 2. võtame jutumärgid maha (JSON.parse)
+  // 3. lisame ühe toote juurde(.push)
+  // 4. paneme jutumärgid tagasi(JSON.stringify)
+  //5. paneme localStoragesse tagasi (localStorage.setItem)
   return (
     <div>
       <button onClick={reset}>Reset</button>

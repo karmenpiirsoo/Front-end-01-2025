@@ -1,23 +1,29 @@
 import { Link } from "react-router-dom"
+import { useTranslation } from 'react-i18next';
+
 
 
 function HaldaHome() {
+  const { t } = useTranslation();
+
+  // return <h1>{t('Welcome to React')}</h1>
+
   return (
     <div>
         <Link to="/halda-esindused">
-        <button>Halda esindusi</button>
+        <button>{t("admin.manage-shops")}</button>
       </Link>
       <Link to="/halda-hinnad">
-        <button>Halda hindu</button>
+        <button>{t("admin.manage-prices")}</button>
       </Link>
       <Link to="/halda-kasutajad">
-        <button>Halda kasutajaid</button>
+        <button>{t("admin.manage-users")}</button>
       </Link>
       <Link to="/halda-pildid">
-        <button>Halda pilte</button>
+        <button>{t("admin.manage-pictures")}</button>
       </Link>
       <Link to="/halda-tootajad">
-        <button>Halda töötajaid</button>
+        <button>{t("admin.manage-workers")}</button>
       </Link>
       <Link to="/halda-tooted">
         <button>Halda tooteid</button>

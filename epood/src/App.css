@@ -125,3 +125,27 @@
     /* filter: grayscale(100%);  */
     opacity: 20%;
   }
+
+  .lang {
+    width: 30px;
+    height: 30px;
+  }
+
+  .lang:hover {
+    opacity: 70%;
+    cursor: pointer
+  }
+
+  .lang:active {
+    padding: 1px;
+  }
+
+  .kaart {
+    height: 300px;
+    border-radius: 10px;
+    margin: 30px 10%;
+  }
+
+  .leaflet-marker-icon:hover {
+    opacity: 50%;
+  }
