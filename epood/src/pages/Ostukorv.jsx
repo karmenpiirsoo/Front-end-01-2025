@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 //import ostukorvFailist from "../data/ostukorv.json"
+import DeleteIcon from '@mui/icons-material/DeleteForeverTwoTone';
 
 function Ostukorv() {
   const [tooted, setTooted] = useState(JSON.parse(localStorage.getItem("ostukorv")) || [])
@@ -24,7 +25,9 @@ function Ostukorv() {
         <div key={toode.name}>
 
           {toode.name} - {toode.price}€
-          <button onClick={() => kustuta(index)}>X</button>
+          <button onClick={() => kustuta(index)}>
+          <DeleteIcon/>
+          </button>
           </div>)}
           <br />
           <br />

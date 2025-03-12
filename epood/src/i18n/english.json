@@ -2,6 +2,8 @@
     "admin.manage-shops": "Manage shops",
     "admin.manage-prices": "Manage prices",
     "admin.manage-users": "Manage users",
+    "admin.manage-pictures": "Manage pictures",
+    "admin.manage-workers": "Manage workers",
     "menu.add": "Add products",
     "menu.cart": "Cart"
   }

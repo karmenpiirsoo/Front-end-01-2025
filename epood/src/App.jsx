@@ -26,6 +26,7 @@ import HaldaPildid from './pages/halda/HaldaPildid'
 import HaldaTooted from './pages/halda/HaldaTooted'
 import { useTranslation } from 'react-i18next';
 import Kaart from './pages/Kaart'
+import {Kontakteeru} from './pages/Kontakteeru'
 
 function App() {
   const { i18n } = useTranslation();
@@ -107,6 +108,7 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='/halda-tooted' element={<HaldaTooted/>} />
 
           <Route path='/kaart' element={<Kaart/>} />
+          <Route path='/Kontakteeru' element={<Kontakteeru/>} />
 
           <Route path='*' element={<NotFound/>} />
         </Routes>

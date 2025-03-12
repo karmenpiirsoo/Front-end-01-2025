@@ -2,6 +2,8 @@
     "admin.manage-shops": "Halda esindusi",
     "admin.manage-prices": "Halda hindu",
     "admin.manage-users": "Halda kasutajaid",
+    "admin.manage-pictures": "Halda pilte",
+    "admin.manage-workers": "Halda töötajaid",
     "menu.add": "Lisa tooteid",
     "menu.cart": "Ostukorv"
   }

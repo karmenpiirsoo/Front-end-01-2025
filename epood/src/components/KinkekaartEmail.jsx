@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { TextField } from "@mui/material";
 
 
 function KinkekaartEmail() {
@@ -31,8 +32,9 @@ const [sonum, setSonum] = useState("");
     return (
     <div>
         <div>{sonum}</div>
-        <label> Email</label> <br />
-        <input ref={emailRef} type="text"/> <br />
+        <TextField ref={emailRef} label="Email" variant="filled" /> <br />
+        {/* <label> Email</label> <br />
+        <input ref={emailRef} type="text"/> <br /> */}
         <button onClick={lisa}>Sisesta email</button> <br />
     </div>
   )
