@@ -1,5 +1,5 @@
 {
-  "name": "eshop",
+  "name": "aiaprojekt",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,18 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.7",
-    "@mui/material": "^6.4.7",
-    "i18next": "^24.2.3",
-    "leaflet": "^1.9.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-i18next": "^15.4.1",
-    "react-router-dom": "^7.3.0",
-    "react-toastify": "^11.0.5"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

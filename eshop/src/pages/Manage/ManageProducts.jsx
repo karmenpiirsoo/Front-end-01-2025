@@ -2,8 +2,18 @@ import { useRef, useState } from "react"
 import productsJSON from "../../data/products.json"
 
 function ManageProducts() {
+  return (
+    <div>ManageProducts</div>
+  )
+}
 
-  const [products, setProducts] = useState(productsJSON.slice()) // setPildid kasutada siis 
+export default ManageProducts
+
+
+
+function HaldaTooted() {
+ 
+    const [products, setProducts] = useState(productsJSON.slice()) // setPildid kasutada siis 
     const nameRef = useRef();
     const priceRef = useRef();
     const pictureRef = useRef();
@@ -32,7 +42,7 @@ function ManageProducts() {
   return (
     <div>
       <button onClick={reset}>Reset</button>
-      <div>Total: {products.length} pc </div>
+      <div>Kokku: {products.length} tk </div>
 
       <br />
       <label>Product name</label><br />
@@ -50,7 +60,7 @@ function ManageProducts() {
        <table>
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>Number</th>
                     <th>Index</th>
                     <th>Product name</th>
                     <th>Picture</th>
@@ -73,6 +83,3 @@ function ManageProducts() {
     </div>
   )
 }
-
-export default ManageProducts
-

@@ -3,62 +3,63 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import Rating from '@mui/material/Rating';
 
+
 export const ContactUs = () => {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const messageRef = useRef();
-  const [value, setValue] = useState(2);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    if (nameRef.current.value === "") {
-        toast.error("Field cannot be empty")
-        return
-    }
-
-    if (emailRef.current.value === "") {
-        toast.error("Field cannot be empty")
-        return
-    }
-
-    if (messageRef.current.value === "") {
-        toast.error("Message cannot be empty")
-        return
-    }
-
-        const data = {
-            name: nameRef.current.value,
-            email: emailRef.current.value,
-            message: messageRef.current.value,
-            rating: value
-        }
-
-
-    emailjs
-      .send ('service_jdbwaqi', 'template_xzpszoe', data, {
-        publicKey: 'nq5-TkXE2nW_I2lRj',
-      })
-      .then(
-        () => {
-            toast.success("Message sent!")
-          console.log('SUCCESS!');
-          nameRef.current.value = "";
-          emailRef.current.value = "";
-          messageRef.current.value = "";
-          // setValue(0);
-        },
-
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const messageRef = useRef();
+    const [value, setValue] = useState(2);
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      if (nameRef.current.value === "") {
+          toast.error("Nimi ei saa olla tühi")
+          return
+      }
+  
+      if (emailRef.current.value === "") {
+          toast.error("Email ei saa olla tühi")
+          return
+      }
+  
+      if (messageRef.current.value === "") {
+          toast.error("Sõnum ei saa olla tühi")
+          return
+      }
+  
+          const data = {
+              name: nameRef.current.value,
+              email: emailRef.current.value,
+              message: messageRef.current.value,
+              rating: value
+          }
+  
+  
+      emailjs
+        .send ('service_jdbwaqi', 'template_xzpszoe', data, {
+          publicKey: 'nq5-TkXE2nW_I2lRj',
+        })
+        .then(
+          () => {
+              toast.success("Sõnum saadetud!")
+            console.log('SUCCESS!');
+            nameRef.current.value = "";
+            emailRef.current.value = "";
+            messageRef.current.value = "";
+            // setValue(0);
+          },
+  
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+    };
 
 
   return (
     <div>
-      <Rating
+        <Rating
         name="simple-controlled"
         value={value}
         onChange={(event, newValue) => {
@@ -80,7 +81,6 @@ export const ContactUs = () => {
           theme="dark"
           />
     </div>
-  )
-}
-
-export default ContactUs
+  );
+};
+    
