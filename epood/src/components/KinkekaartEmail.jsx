@@ -32,7 +32,7 @@ const [sonum, setSonum] = useState("");
     return (
     <div>
         <div>{sonum}</div>
-        <TextField ref={emailRef} label="Email" variant="filled" /> <br />
+        <TextField inputRef={emailRef} label="Email" variant="filled" /> <br />
         {/* <label> Email</label> <br />
         <input ref={emailRef} type="text"/> <br /> */}
         <button onClick={lisa}>Sisesta email</button> <br />

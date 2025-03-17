@@ -1,14 +1,14 @@
 
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Avaleht from './pages/Avaleht'
+// import Avaleht from './pages/Avaleht'
 import Ostukorv from './pages/Ostukorv'
 import Kinkekaart from './pages/Kinkekaart'
 import Seaded from './pages/Seaded'
 import NotFound from './pages/NotFound'
 import LisaToode from './pages/LisaToode'
 import Esindused from './pages/arrays/Esindused'
-import Menu from './components/Menu'
+// import Menu from './components/Menu'
 import Kalkulaator from './pages/Kalkulaator'
 import { useState } from 'react'
 import Hinnad from './pages/arrays/Hinnad'
@@ -27,6 +27,7 @@ import HaldaTooted from './pages/halda/HaldaTooted'
 import { useTranslation } from 'react-i18next';
 import Kaart from './pages/Kaart'
 import {Kontakteeru} from './pages/Kontakteeru'
+import NavigationBar from './components/NavigationBar'
 
 function App() {
   const { i18n } = useTranslation();
@@ -61,7 +62,7 @@ function App() {
 // if (tume === true) {"dark"} else {"light"}
   return (
     <div className={tume === "true" ? "dark" : "light"}>
-    <Menu />
+    <NavigationBar />
     <span className='theme-buttons'>
       <button onClick={tumeMode}>Tume</button>
       <button onClick={heleMode}>Hele</button>
@@ -83,7 +84,8 @@ path tähendab, mis järgneb domeenmile
 Kõikidele rohelistele suure tähega on vajalik import
 */}
         <Routes>
-          <Route path="/" element={<Avaleht/>} />
+          {/* <Route path="/" element={<Avaleht/>} /> */}
+          <Route path='/' element={<Tooted/>} />
           <Route path='/ostukorv' element={<Ostukorv/>} />
           <Route path='/osta-kinkekaart' element={<Kinkekaart/>} />
           <Route path='/seaded' element={<Seaded/>} />
@@ -97,7 +99,6 @@ Kõikidele rohelistele suure tähega on vajalik import
           <Route path='/kasutajad' element={<Kasutajad/>} />
           <Route path='/tootajad' element={<Tootajad/>} />
           <Route path='/pildid' element={<Pildid/>} />
-          <Route path='/tooted' element={<Tooted/>} />
 
           <Route path="/halda" element={<HaldaHome/>} />
           <Route path="/halda-esindused" element={<HaldaEsindused/>} />
@@ -133,10 +134,10 @@ export default App
 // 11. URL muutuja (parameeter) (26.02.25)
 // 12. Ostukorv lisa, kustuta ja eemalda ja objektid (tooted - lisamine ja kustutamine) (5.03.25)
 // 13. localStorage (ostukorv), tõlge, kaardirakendus(10.03.25)
-// 14.  emaili saatmine, kujunduslik pool, eshopis (12.03.25)
-// 15. 
-// 16. 
-// 17. 
+// 14. emaili saatmine, kujunduslik pool, eshopis (12.03.25)
+// 15. Bootstrap(menüü, karusell), kogus ostukorvis, ostukorvi kujundus (17.03.25)
+// 16. (24.03.25)
+// 17. (26.03.25)
 // 18. Lõpuprojekti esitlemine (7.04)
 
 // kood Jõhvi

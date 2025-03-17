@@ -1,0 +1,38 @@
+.toode {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0
+}
+
+.nimi {
+    transform: translateY(20%);
+    width: 200px;
+}
+
+.hind {
+    transform: translateY(20%);
+    width: 80px;
+}
+
+
+.button {
+    background-color: pink !important;
+}
+
+
+.kogus {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.kogus div {
+    transform: translateY(20%)
+}
+
+.kokku{
+    transform: translateY(20%);
+    width: 100px;
+}

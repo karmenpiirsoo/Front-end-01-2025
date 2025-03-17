@@ -53,7 +53,7 @@ function Products() {
 
       {products.map(product => 
       <div key={product.name}>     
-        <img className={product.active === true ? "toote-pilt" : "pilt-mitteaktiivne"} src={product.image} alt="" />   
+        <img className={product.active === true ? "product-picture" : "picture-inactive"} src={product.image} alt="" />   
         <div>{product.name} - {product.price}€ </div>
         <button disabled={product.active === false} onClick={() => addToCart(product)}>Add to cart</button>
         <Divider/>

@@ -24,13 +24,13 @@
   transform: scale(90%);
 }
 
-.toote-pilt {
+.product-picture {
   height: 100px;
   width: 100px;
 
 }
 
-.pilt-mitteaktiivne {
+.picture-inactive {
   width: 100px;
   height: 100px;
   /* filter: grayscale(100%);  */

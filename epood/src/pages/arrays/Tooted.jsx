@@ -3,6 +3,9 @@ import tootedFailist from "../../data/tooted.json"
 // import ostukorvFailist from "../../data/ostukorv.json"
 import Divider from '@mui/material/Divider';
 import AutoComplete from "../../components/AutoComplete";
+import CarouselGallery from "../../components/CarouselGallery";
+// import ImageAccordion from "../../components/ImageAccordion";
+import { ToastContainer, toast } from 'react-toastify'
 
 function Tooted() {
 
@@ -47,11 +50,19 @@ function Tooted() {
     setTooted(vastus)
   }
 
-  const lisaOstukorvi = (toode) => {
+  const lisaOstukorvi = (klikitudToode) => {
     // ostukorvFailist.push(toode);
     const ostukorvLS = JSON.parse(localStorage.getItem("ostukorv")) || []
-    ostukorvLS.push(toode);
+    const product = ostukorvLS.find(ostukorviToode => ostukorviToode.toode.name === klikitudToode.name)
+    if (product !== undefined) {
+        // suurendame kogust
+        product.kogus = product.kogus + 1;
+    } else {
+      // lisame ühe juurde kogusega 1
+    ostukorvLS.push({"toode": klikitudToode, "kogus": 1});
+    }
     localStorage.setItem("ostukorv", JSON.stringify(ostukorvLS));
+    toast.success("Edukalt ostukorvi lisatud!");
   }
 
   const filterByCountry = (event) => {
@@ -70,6 +81,8 @@ function Tooted() {
 
   return (
     <div>
+      {/* <ImageAccordion /> */}
+      <CarouselGallery />
       <button onClick={reset}>Reset</button>
       <br />
       <button onClick={sorteeriAZ}>Sorteeri kasvavalt</button>
@@ -92,6 +105,12 @@ function Tooted() {
         <button disabled={toode.active === false} onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
         <Divider/>
         </div>)}
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          theme="dark"
+          />
     </div>
   )
 }
