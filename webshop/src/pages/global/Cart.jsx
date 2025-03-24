@@ -30,7 +30,8 @@ function Cart() {
   }
 
   function minusOne(index) {
-    products[index].kogus--;
+    console.log(index)
+    products[index].amount--;
     if (products[index].amount === 0) {
       remove(index);
     }
@@ -39,7 +40,8 @@ function Cart() {
   }
 
   function addOne(index) {
-    products[index].kogus++;
+    console.log(index)
+    products[index].amount++;
     setProducts(products.slice());
     localStorage.setItem("cart", JSON.stringify(products))
   }
@@ -49,11 +51,11 @@ function Cart() {
       {products.length > 0 && <button onClick={empty}>Empty your cart</button>}
 
 {products.map((t, index) => 
-<div className="product" key={t.product.name}>
- <div className="name">  {t.product.name}</div>
+<div className="product" key={t.product.title}>
+ <div className="name">  {t.product.title}</div>
   <div className="price">{t.product.price}€</div>
  <div className="amount">
-  <button className="button"onClick={() => minusOne(index)}>-</button>
+  <button className="button" onClick={() => minusOne(index)}>-</button>
   <div >{t.amount}</div>
   <button className="button" onClick={() => addOne(index)}>+</button>
   </div>

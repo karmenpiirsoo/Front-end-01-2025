@@ -136,8 +136,8 @@ export default App
 // 13. localStorage (ostukorv), tõlge, kaardirakendus(10.03.25)
 // 14. emaili saatmine, kujunduslik pool, eshopis (12.03.25)
 // 15. Bootstrap(menüü, karusell), kogus ostukorvis, ostukorvi kujundus (17.03.25)
-// 16. (24.03.25)
-// 17. (26.03.25)
+// 16. Andmebaas firebase ja firebase lisanime uuesti, useParams(üksiku toote index), kujundus(24.03.25)
+// 17. Andmepaas, addproduct, editproducts, (26.03.25)
 // 18. Lõpuprojekti esitlemine (7.04)
 
 // kood Jõhvi

@@ -16,12 +16,12 @@ function Tooted() {
   }
 
   const sorteeriAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a.name.localeCompare(b))
+    const vastus = tooted.toSorted((a, b) => a.name.localeCompare(b.name))
     setTooted(vastus)
   }
 
   const sorteeriZA = () => {
-    const vastus = tooted.toSorted((a, b) => b.name.localeCompare(a))
+    const vastus = tooted.toSorted((a, b) => b.name.localeCompare(a.name))
     setTooted(vastus)
   }
 
@@ -36,12 +36,12 @@ function Tooted() {
   }
 
   const sorteeriTeineTahtAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a.name[2].localeCompare(b[2]))
+    const vastus = tooted.toSorted((a, b) => a.name[2].localeCompare(b.name[2]))
     setTooted(vastus)
   }
 
   const sorteeriKolmasTahtAZ = () => {
-    const vastus = tooted.toSorted((a, b) => a.name[3].localeCompare(b[3]))
+    const vastus = tooted.toSorted((a, b) => a.name[3].localeCompare(b.name[3]))
     setTooted(vastus)
   }
 
