@@ -64,7 +64,7 @@ function Cart() {
   </div>)}
   <br />
   <br />
-{products.length === 0 && <Link to=''>Your cart is empty, click here and get shopping</Link>}
+{products.length === 0 && <Link to='/'>Your cart is empty, click here and get shopping</Link>}
 
 <div>You have {totalAmount()} products in your cart</div>
 <div> Your sub-total is {totalSum()} €</div>
