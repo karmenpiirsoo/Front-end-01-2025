@@ -1,20 +1,20 @@
 import './App.css'
-import NavigationBar from '../../epood/src/components/NavigationBar'
+import NavigationBar from './components/NavigationBar'
 import { Route, Routes } from 'react-router-dom'
-import HomePage from './global/HomePage'
-import ContactUs from './global/ContactUs'
-import Cart from './global/Cart'
-import NotFound from './global/NotFound'
-import Shops from './global/Shops'
-import SingleProducts from './global/SingleProducts'
-import AdminHome from './admin/AdminHome'
-import AddProduct from './admin/AddProduct'
-import EditProduct from './admin/EditProduct'
-import MaintainCategories from './admin/MaintainCategories'
-import MaintainProducts from './admin/MaintainProducts'
-import MaintainShops from './admin/MaintainShops'
-import Login from './auth/Login'
-import Signup from './auth/Signup'
+import HomePage from './pages/global/HomePage'
+import ContactUs from './pages/global/ContactUs'
+import Cart from './pages/global/Cart'
+import NotFound from './pages/global/NotFound'
+import Shops from './pages/global/Shops'
+import SingleProduct from './pages/global/SingleProduct'
+import AdminHome from './pages/admin/AdminHome'
+import AddProduct from './pages/admin/AddProduct'
+import EditProduct from './pages/admin/EditProduct'
+import MaintainCategories from './pages/admin/MaintainCategories'
+import MaintainProducts from './pages/admin/MaintainProducts'
+import MaintainShops from './pages/admin/MaintainShops'
+import Login from './pages/auth/Login'
+import Signup from './pages/auth/Signup'
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
          <Route path='contact' element={ <ContactUs /> } />
          <Route path='shops' element={ <Shops /> } />
          <Route path='cart' element={ <Cart /> } />
-         <Route path='product/:index' element={ <SingleProducts /> } />
+         <Route path='product/:index' element={ <SingleProduct /> } />
 
          <Route path='admin' element={ <AdminHome /> } />
          <Route path='admin/add-product' element={ <AddProduct /> } />
